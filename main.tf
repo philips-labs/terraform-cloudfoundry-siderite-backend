@@ -15,7 +15,7 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
   space        = cloudfoundry_space.space.id
   memory       = var.gateway_memory
   disk_quota   = var.gateway_disk_quota
-  docker_image = var.hsdp_func_gateway_image
+  docker_image = var.function_gateway_image
   docker_credentials = {
     username = var.docker_username
     password = var.docker_password
@@ -41,9 +41,14 @@ resource "cloudfoundry_route" "hsdp_func_gateway" {
 resource "cloudfoundry_service_instance" "iron" {
   name         = "iron"
   space        = cloudfoundry_space.space.id
-  service_plan = data.cloudfoundry_service.iron.service_plans["dev-large-encrypted"]
+  service_plan = data.cloudfoundry_service.iron.service_plans[var.iron_plan]
 
   depends_on = [cloudfoundry_space_users.users]
+}
+
+resource "cloudfoundry_service_key" "iron" {
+  name = "key"
+  service_instance = cloudfoundry_service_instance.iron.id
 }
 
 resource "cloudfoundry_service_instance" "metrics" {

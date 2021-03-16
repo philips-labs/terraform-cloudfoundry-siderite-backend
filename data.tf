@@ -8,7 +8,7 @@ data "cloudfoundry_user" "user" {
 }
 
 data "cloudfoundry_domain" "app_domain" {
-  name = var.cf_app_domain
+  name = data.hsdp_config.config.domain
 }
 
 data "cloudfoundry_service" "iron" {
