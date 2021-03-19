@@ -56,7 +56,7 @@ variable "gateway_disk_quota" {
 }
 
 variable "iron_plan" {
-  type = string
+  type        = string
   description = "The Iron plan to use"
-  default = "dev-large-encrypted"
+  default     = "dev-large-encrypted"
 }

@@ -47,7 +47,7 @@ resource "cloudfoundry_service_instance" "iron" {
 }
 
 resource "cloudfoundry_service_key" "iron" {
-  name = "key"
+  name             = "key"
   service_instance = cloudfoundry_service_instance.iron.id
 }
 
