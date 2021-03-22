@@ -2,7 +2,7 @@
 
 # terraform-cloudfoundry-siderite-backend
 
-Deploys backend support for Siderite `hsdp_function`
+Module to deploy a Siderite backend for `hsdp_function` resource
 
 # Usages
 
