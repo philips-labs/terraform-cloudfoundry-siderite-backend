@@ -1,7 +1,8 @@
 <img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="500px">
 
-# terraform-cloudfoundry-iron-backend
-Deploys backend support for Iron `hsdp_function`
+# terraform-cloudfoundry-siderite-backend
+
+Deploys backend support for Siderite `hsdp_function`
 
 # Usages
 

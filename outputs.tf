@@ -1,5 +1,5 @@
 output "credentials" {
-  description = "Iron credentials"
+  description = "Siderite credentials"
   value = merge(cloudfoundry_service_key.iron.credentials,
     {
       "siderite_token" : random_password.password.result,

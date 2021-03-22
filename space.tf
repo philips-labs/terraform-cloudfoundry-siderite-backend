@@ -1,5 +1,5 @@
 resource "cloudfoundry_space" "space" {
-  name = "iron-backend-${local.postfix_name}"
+  name = "siderite-backend-${local.postfix_name}"
   org  = data.cloudfoundry_org.org.id
 }
 
