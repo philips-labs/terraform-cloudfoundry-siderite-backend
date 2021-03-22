@@ -16,7 +16,6 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
   memory       = var.gateway_memory
   disk_quota   = var.gateway_disk_quota
   docker_image = var.function_gateway_image
-  command      = "/app/chisel server --reverse"
 
   docker_credentials = {
     username = var.docker_username
