@@ -49,6 +49,12 @@ No Modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| auth\_iam\_client\_id | The IAN OAuth2 client ID | `string` | `""` | no |
+| auth\_iam\_client\_secret | The IAN OAuth2 client secret | `string` | `""` | no |
+| auth\_iam\_environment | IAM environment | `string` | `"client-test"` | no |
+| auth\_iam\_orgs | List of IAM ORG IDs to allow | `list(string)` | `[]` | no |
+| auth\_iam\_region | IAM region | `string` | `"us-east"` | no |
+| auth\_iam\_role | The role within the IAM ORG that grants access | `string` | `"HSDP_FUNCTION"` | no |
 | cf\_org\_name | Cloudfoundry ORG name to use for reverse proxy | `string` | n/a | yes |
 | cf\_region | The CF region to deploy into | `string` | n/a | yes |
 | cf\_user | The Cloudfoundry user to assign rights to the app to | `string` | n/a | yes |
@@ -56,7 +62,9 @@ No Modules.
 | docker\_username | Docker registry username | `string` | `""` | no |
 | environment | Pass environment variable to the app | `map(any)` | `{}` | no |
 | function\_gateway\_image | Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates | `string` | `"philipslabs/hsdp-func-gateway:v0.0.16"` | no |
+| gateway\_auth\_type | Enable authorization for endpoints on the gateway. Supported types: ['none', 'token', 'iam'] | `string` | `"none"` | no |
 | gateway\_disk\_quota | Gateway disk quota | `number` | `1024` | no |
+| gateway\_enabled | Enable a gateway endpoint so you can trigger functions through HTTPS | `bool` | `true` | no |
 | gateway\_memory | Gateway memory | `number` | `64` | no |
 | iron\_plan | The Iron plan to use | `string` | `"dev-large-encrypted"` | no |
 | name\_postfix | The postfix string to append to the space, hostname, etc. Prevents namespace clashes | `string` | `""` | no |

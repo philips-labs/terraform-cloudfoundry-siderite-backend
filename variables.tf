@@ -19,6 +19,60 @@ variable "name_postfix" {
   default     = ""
 }
 
+variable "gateway_enabled" {
+  type        = bool
+  description = "Enable a gateway endpoint so you can trigger functions through HTTPS"
+  default     = true
+}
+
+variable "gateway_auth_type" {
+  type        = string
+  description = "Enable authorization for endpoints on the gateway. Supported types: ['none', 'token', 'iam']"
+  default     = "none"
+}
+
+variable "auth_iam_region" {
+  type        = string
+  description = "IAM region"
+  default = "us-east"
+}
+
+variable "auth_iam_environment" {
+  type        = string
+  description = "IAM environment"
+  default = "client-test"
+}
+
+variable "auth_iam_orgs" {
+  type        = list(string)
+  description = "List of IAM ORG IDs to allow"
+  default = []
+}
+
+variable "auth_iam_orgs" {
+  type        = list(string)
+  description = "List of IAM ORG IDs to allow"
+  default = []
+}
+
+variable "auth_iam_role" {
+  type        = string
+  description = "The role within the IAM ORG that grants access"
+  default     = "HSDP_FUNCTION"
+}
+
+variable "auth_iam_client_id" {
+  type        = string
+  description = "The IAN OAuth2 client ID"
+  default     = ""
+}
+
+variable "auth_iam_client_secret" {
+  type        = string
+  description = "The IAN OAuth2 client secret"
+  default     = ""
+}
+
 variable "function_gateway_image" {
   description = "Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates"
   default     = "philipslabs/hsdp-func-gateway:v0.0.16"

@@ -11,6 +11,7 @@ locals {
 }
 
 resource "cloudfoundry_app" "hsdp_func_gateway" {
+  count        = var.gateway_enabled ? 1 : 0
   name         = "hsdp-func-gateway"
   space        = cloudfoundry_space.space.id
   memory       = var.gateway_memory
@@ -21,10 +22,21 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
     username = var.docker_username
     password = var.docker_password
   }
-  environment = var.environment
+  environment = merge(var.environment,
+    {
+      GATEWAY_AUTH_TYPE : var.gateway_auth_type
+      AUTH_IAM_REGION : var.auth_iam_region
+      AUTH_IAM_ENVIRONMENT : var.auth_iam_environment
+      AUTH_IAM_ORGS : join(var.auth_iam_orgs, ",")
+      AUTH_IAM_ROLES : join(var.auth_iam_role, ",")
+      AUTH_IAM_CLIENT_ID : var.auth_iam_client_id
+      AUTH_IAM_CLIENT_SECRET : var.auth_iam_client_secret
+      AUTH_TOKEN_TOKEN: random_password.password.result
+    }
+  )
 
   routes {
-    route = cloudfoundry_route.hsdp_func_gateway.id
+    route = cloudfoundry_route.hsdp_func_gateway[0].id
   }
   service_binding {
     service_instance = cloudfoundry_service_instance.iron.id
@@ -32,6 +44,7 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
 }
 
 resource "cloudfoundry_route" "hsdp_func_gateway" {
+  count    = var.gateway_enabled ? 1 : 0
   domain   = data.cloudfoundry_domain.app_domain.id
   space    = cloudfoundry_space.space.id
   hostname = "hsdp-func-gateway-${local.postfix_name}"
