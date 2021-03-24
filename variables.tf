@@ -50,7 +50,7 @@ variable "auth_iam_orgs" {
 }
 
 variable "auth_iam_roles" {
-  type        = string
+  type        = list(string)
   description = "The roles within the IAM ORG that grants access"
   default     = ["HSDP_FUNCTION"]
 }
