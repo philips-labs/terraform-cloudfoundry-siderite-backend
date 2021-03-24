@@ -27,8 +27,8 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
       GATEWAY_AUTH_TYPE : var.gateway_auth_type
       AUTH_IAM_REGION : var.auth_iam_region
       AUTH_IAM_ENVIRONMENT : var.auth_iam_environment
-      AUTH_IAM_ORGS : join(var.auth_iam_orgs, ",")
-      AUTH_IAM_ROLES : join(var.auth_iam_roles, ",")
+      AUTH_IAM_ORGS : join(",", var.auth_iam_orgs)
+      AUTH_IAM_ROLES : join(",", var.auth_iam_roles)
       AUTH_IAM_CLIENT_ID : var.auth_iam_client_id
       AUTH_IAM_CLIENT_SECRET : var.auth_iam_client_secret
       AUTH_TOKEN_TOKEN: random_password.password.result
