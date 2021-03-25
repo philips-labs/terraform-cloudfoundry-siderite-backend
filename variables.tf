@@ -29,6 +29,10 @@ variable "gateway_auth_type" {
   type        = string
   description = "Enable authorization for endpoints on the gateway. Supported types: ['none', 'token', 'iam']"
   default     = "none"
+  validation {
+    condition = can(contains(["token", "iam", "none"], var.gateway_auth_type))
+    error_message = "gateway_auth_type can only have value 'none', 'token' or 'iam'"
+  }
 }
 
 variable "auth_iam_region" {
@@ -63,7 +67,7 @@ variable "auth_iam_client_id" {
 
 variable "auth_iam_client_secret" {
   type        = string
-  description = "The IAN OAuth2 client secret"
+  description = "The IAM OAuth2 client secret"
   default     = ""
 }
 
