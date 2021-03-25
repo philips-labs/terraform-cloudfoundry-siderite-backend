@@ -28,7 +28,7 @@ variable "enable_gateway" {
 variable "gateway_auth_type" {
   type        = string
   description = "Enable authorization for endpoints on the gateway. Supported types: ['none', 'token', 'iam']"
-  default     = "none"
+  default     = "token"
   validation {
     condition = can(contains(["token", "iam", "none"], var.gateway_auth_type))
     error_message = "Only values supported are 'none', 'token' and 'iam'."
@@ -73,7 +73,7 @@ variable "auth_iam_client_secret" {
 
 variable "function_gateway_image" {
   description = "Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates"
-  default     = "philipslabs/hsdp-func-gateway:v0.0.17"
+  default     = "philipslabs/hsdp-func-gateway:v0.0.18"
   type        = string
 }
 

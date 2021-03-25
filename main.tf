@@ -3,7 +3,8 @@ resource "random_id" "id" {
 }
 
 resource "random_password" "password" {
-  length = 16
+  length = 32
+  special = false
 }
 
 locals {
