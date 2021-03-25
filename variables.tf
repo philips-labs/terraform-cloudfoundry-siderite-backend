@@ -19,10 +19,10 @@ variable "name_postfix" {
   default     = ""
 }
 
-variable "gateway_enabled" {
+variable "enable_gateway" {
   type        = bool
   description = "Enable a gateway endpoint so you can trigger functions through HTTPS"
-  default     = true
+  default     = false
 }
 
 variable "gateway_auth_type" {
@@ -31,7 +31,7 @@ variable "gateway_auth_type" {
   default     = "none"
   validation {
     condition = can(contains(["token", "iam", "none"], var.gateway_auth_type))
-    error_message = "gateway_auth_type can only have value 'none', 'token' or 'iam'"
+    error_message = "Only values supported are 'none', 'token' and 'iam'."
   }
 }
 

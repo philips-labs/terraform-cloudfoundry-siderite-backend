@@ -11,7 +11,7 @@ locals {
 }
 
 resource "cloudfoundry_app" "hsdp_func_gateway" {
-  count        = var.gateway_enabled ? 1 : 0
+  count        = var.enable_gateway ? 1 : 0
   name         = "hsdp-func-gateway"
   space        = cloudfoundry_space.space.id
   memory       = var.gateway_memory
@@ -44,7 +44,7 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
 }
 
 resource "cloudfoundry_route" "hsdp_func_gateway" {
-  count    = var.gateway_enabled ? 1 : 0
+  count    = var.enable_gateway ? 1 : 0
   domain   = data.cloudfoundry_domain.app_domain.id
   space    = cloudfoundry_space.space.id
   hostname = "hsdp-func-gateway-${local.postfix_name}"
