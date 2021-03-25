@@ -56,7 +56,7 @@ variable "auth_iam_orgs" {
 variable "auth_iam_roles" {
   type        = list(string)
   description = "The roles within the IAM ORG that grants access"
-  default     = ["HSDP_FUNCTION"]
+  default     = []
 }
 
 variable "auth_iam_client_id" {
@@ -73,7 +73,7 @@ variable "auth_iam_client_secret" {
 
 variable "function_gateway_image" {
   description = "Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates"
-  default     = "philipslabs/hsdp-func-gateway:v0.0.18"
+  default     = "philipslabs/hsdp-func-gateway:v0.0.19"
   type        = string
 }
 
