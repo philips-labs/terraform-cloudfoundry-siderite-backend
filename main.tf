@@ -3,18 +3,19 @@ resource "random_id" "id" {
 }
 
 resource "random_password" "password" {
-  length = 32
+  length  = 32
   special = false
 }
 
 locals {
   postfix_name = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
+  space_id     = var.cf_space != "" ? join("", data.cloudfoundry_space.space.*.id) : join("", cloudfoundry_space.space.*.id)
 }
 
 resource "cloudfoundry_app" "hsdp_func_gateway" {
   count        = var.enable_gateway ? 1 : 0
-  name         = "hsdp-func-gateway"
-  space        = cloudfoundry_space.space.id
+  name         = "hsdp-func-gateway-${local.postfix_name}"
+  space        = local.space_id
   memory       = var.gateway_memory
   disk_quota   = var.gateway_disk_quota
   docker_image = var.function_gateway_image
@@ -39,23 +40,20 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
   routes {
     route = cloudfoundry_route.hsdp_func_gateway[0].id
   }
-  service_binding {
-    service_instance = cloudfoundry_service_instance.iron.id
-  }
 }
 
 resource "cloudfoundry_route" "hsdp_func_gateway" {
   count    = var.enable_gateway ? 1 : 0
   domain   = data.cloudfoundry_domain.app_domain.id
-  space    = cloudfoundry_space.space.id
+  space    = local.space_id
   hostname = "hsdp-func-gateway-${local.postfix_name}"
 
   depends_on = [cloudfoundry_space_users.users]
 }
 
 resource "cloudfoundry_service_instance" "iron" {
-  name         = "iron"
-  space        = cloudfoundry_space.space.id
+  name         = "iron-${local.postfix_name}"
+  space        = local.space_id
   service_plan = data.cloudfoundry_service.iron.service_plans[var.iron_plan]
 
   depends_on = [cloudfoundry_space_users.users]
@@ -64,12 +62,4 @@ resource "cloudfoundry_service_instance" "iron" {
 resource "cloudfoundry_service_key" "iron" {
   name             = "key"
   service_instance = cloudfoundry_service_instance.iron.id
-}
-
-resource "cloudfoundry_service_instance" "metrics" {
-  name         = "metrics"
-  space        = cloudfoundry_space.space.id
-  service_plan = data.cloudfoundry_service.metrics.service_plans["metrics"]
-
-  depends_on = [cloudfoundry_space_users.users]
 }

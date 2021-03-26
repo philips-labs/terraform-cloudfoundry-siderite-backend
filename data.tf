@@ -2,6 +2,12 @@ data "cloudfoundry_org" "org" {
   name = var.cf_org_name
 }
 
+data "cloudfoundry_space" "space" {
+  count = var.cf_space != "" ? 1 : 0
+  name  = var.cf_space
+  org   = data.cloudfoundry_org.org.id
+}
+
 data "cloudfoundry_user" "user" {
   name   = var.cf_user
   org_id = data.cloudfoundry_org.org.id

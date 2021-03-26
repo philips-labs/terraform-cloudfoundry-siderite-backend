@@ -8,6 +8,12 @@ variable "cf_org_name" {
   type        = string
 }
 
+variable "cf_space" {
+  description = "The space where to deploy components to. If not specified a new space will be created"
+  type        = string
+  default     = ""
+}
+
 variable "cf_user" {
   description = "The Cloudfoundry user to assign rights to the app to"
   type        = string
@@ -30,7 +36,7 @@ variable "gateway_auth_type" {
   description = "Enable authorization for endpoints on the gateway. Supported types: ['none', 'token', 'iam']"
   default     = "token"
   validation {
-    condition = can(contains(["token", "iam", "none"], var.gateway_auth_type))
+    condition     = can(contains(["token", "iam", "none"], var.gateway_auth_type))
     error_message = "Only values supported are 'none', 'token' and 'iam'."
   }
 }
@@ -38,19 +44,19 @@ variable "gateway_auth_type" {
 variable "auth_iam_region" {
   type        = string
   description = "IAM region"
-  default = "us-east"
+  default     = "us-east"
 }
 
 variable "auth_iam_environment" {
   type        = string
   description = "IAM environment"
-  default = "client-test"
+  default     = "client-test"
 }
 
 variable "auth_iam_orgs" {
   type        = list(string)
   description = "List of IAM ORG IDs to allow"
-  default = []
+  default     = []
 }
 
 variable "auth_iam_roles" {
