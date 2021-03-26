@@ -1,0 +1,15 @@
+{
+  "cluster_info": [
+    {
+      "cluster_id": "${cluster_id}",
+      "pubkey": "${pubkey}",
+      "user_id": "${user_id}"
+    }
+  ],
+  "email": "${email}",
+  "password": "${password}",
+  "project": "${project}",
+  "project_id": "${project_id}",
+  "token": "${token}",
+  "user_id": "${user_id}"
+}
