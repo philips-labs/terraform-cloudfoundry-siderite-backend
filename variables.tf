@@ -28,7 +28,7 @@ variable "name_postfix" {
 variable "enable_gateway" {
   type        = bool
   description = "Enable a gateway endpoint so you can trigger functions through HTTPS"
-  default     = false
+  default     = true
 }
 
 variable "gateway_auth_type" {
