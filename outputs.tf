@@ -8,11 +8,13 @@ output "credentials" {
       "siderite_auth_type" : var.gateway_auth_type
     }
   )
+  sensitive = true
 }
 
 output "token" {
   description = "The authentication token for the gateway"
   value       = random_password.password.result
+  sensitive   = true
 }
 
 output "api_endpoint" {
