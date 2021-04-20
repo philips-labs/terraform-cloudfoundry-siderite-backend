@@ -5,7 +5,7 @@
 Module to deploy a Siderite backend for `hsdp_function` resource. The module is still evolving and getting
 new features. Be sure to follow the releases closely until we hit a `1.0.0` release.
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!--- BEGIN_TF_DOCS --->
 ## Requirements
 
 | Name | Version |
@@ -74,7 +74,8 @@ No Modules.
 | Name | Description |
 |------|-------------|
 | credentials | Siderite credentials |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!--- END_TF_DOCS --->
 
 # Contact / Getting help
 
