@@ -118,3 +118,9 @@ variable "iron_plan" {
   description = "The Iron plan to use"
   default     = "dev-large-encrypted"
 }
+
+variable "base_url" {
+  type        = string
+  description = "base URL for iron service"
+  default     = ""
+}

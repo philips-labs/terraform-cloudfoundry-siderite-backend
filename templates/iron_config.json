@@ -11,5 +11,6 @@
   "project": "${project}",
   "project_id": "${project_id}",
   "token": "${token}",
-  "user_id": "${user_id}"
+  "user_id": "${user_id}",
+  "base_url": "${base_url}"
 }

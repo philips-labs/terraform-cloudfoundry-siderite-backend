@@ -43,6 +43,7 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
         token      = cloudfoundry_service_key.iron.credentials["token"]
         project    = cloudfoundry_service_key.iron.credentials["project"]
         project_id = cloudfoundry_service_key.iron.credentials["project_id"]
+        base_url   = var.base_url
       })
     }
   )
