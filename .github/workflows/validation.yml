@@ -1,6 +1,11 @@
 name: Validate terraform code
 on:
-  - pull_request
+  push:
+    tags:
+      - v*
+    branches:
+      - main
+  pull_request:
 jobs:
   validate:
     runs-on: ubuntu-latest
