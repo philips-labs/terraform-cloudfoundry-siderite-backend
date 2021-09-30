@@ -3,7 +3,7 @@
 # terraform-cloudfoundry-siderite-backend
 
 Module to deploy a Siderite backend for `hsdp_function` resource. The module is still evolving and getting
-new features. Be sure to follow the releases closely until we hit a `1.0.0` release.
+new features. Be sure to follow the releases closely as we work towards the `1.0.0` release.
 
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
