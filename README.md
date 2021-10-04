@@ -65,7 +65,7 @@ No Modules.
 | docker\_username | Docker registry username | `string` | `""` | no |
 | enable\_gateway | Enable a gateway endpoint so you can trigger functions through HTTPS | `bool` | `true` | no |
 | environment | Pass environment variable to the app | `map(any)` | `{}` | no |
-| function\_gateway\_image | Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates | `string` | `"philipslabs/hsdp-func-gateway:v0.10.0"` | no |
+| function\_gateway\_image | Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates | `string` | `"philipslabs/hsdp-func-gateway:v1.0.0"` | no |
 | gateway\_auth\_type | Enable authorization for endpoints on the gateway. Supported types: ['none', 'token', 'iam'] | `string` | `"token"` | no |
 | gateway\_disk\_quota | Gateway disk quota | `number` | `1024` | no |
 | gateway\_memory | Gateway memory | `number` | `64` | no |
