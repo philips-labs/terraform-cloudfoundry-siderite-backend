@@ -12,7 +12,7 @@ new features. Be sure to follow the releases closely as we work towards the `1.0
 |------|---------|
 | terraform | >= 0.13.0 |
 | cloudfoundry | >= 0.14.1 |
-| hsdp | >= 0.14.8 |
+| hsdp | >= 0.20.5 |
 | random | >= 2.2.1 |
 
 ## Providers
@@ -20,7 +20,7 @@ new features. Be sure to follow the releases closely as we work towards the `1.0
 | Name | Version |
 |------|---------|
 | cloudfoundry | >= 0.14.1 |
-| hsdp | >= 0.14.8 |
+| hsdp | >= 0.20.5 |
 | random | >= 2.2.1 |
 
 ## Modules
@@ -31,20 +31,20 @@ No Modules.
 
 | Name |
 |------|
-| [cloudfoundry_app](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/resources/app) |
-| [cloudfoundry_domain](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/data-sources/domain) |
-| [cloudfoundry_org](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/data-sources/org) |
-| [cloudfoundry_route](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/resources/route) |
-| [cloudfoundry_service](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/data-sources/service) |
-| [cloudfoundry_service_instance](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/resources/service_instance) |
-| [cloudfoundry_service_key](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/resources/service_key) |
-| [cloudfoundry_space](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/data-sources/space) |
-| [cloudfoundry_space](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/resources/space) |
-| [cloudfoundry_space_users](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/resources/space_users) |
-| [cloudfoundry_user](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/0.14.1/docs/data-sources/user) |
-| [hsdp_config](https://registry.terraform.io/providers/philips-software/hsdp/0.14.8/docs/data-sources/config) |
-| [random_id](https://registry.terraform.io/providers/random/2.2.1/docs/resources/id) |
-| [random_password](https://registry.terraform.io/providers/random/2.2.1/docs/resources/password) |
+| [cloudfoundry_app](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/app) |
+| [cloudfoundry_domain](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/domain) |
+| [cloudfoundry_org](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/org) |
+| [cloudfoundry_route](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/route) |
+| [cloudfoundry_service](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/service) |
+| [cloudfoundry_service_instance](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_instance) |
+| [cloudfoundry_service_key](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_key) |
+| [cloudfoundry_space](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/space) |
+| [cloudfoundry_space](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/space) |
+| [cloudfoundry_space_users](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/space_users) |
+| [cloudfoundry_user](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/user) |
+| [hsdp_config](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/data-sources/config) |
+| [random_id](https://registry.terraform.io/providers/random/latest/docs/resources/id) |
+| [random_password](https://registry.terraform.io/providers/random/latest/docs/resources/password) |
 
 ## Inputs
 
@@ -65,7 +65,7 @@ No Modules.
 | docker\_username | Docker registry username | `string` | `""` | no |
 | enable\_gateway | Enable a gateway endpoint so you can trigger functions through HTTPS | `bool` | `true` | no |
 | environment | Pass environment variable to the app | `map(any)` | `{}` | no |
-| function\_gateway\_image | Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates | `string` | `"philipslabs/hsdp-func-gateway:v0.5.1"` | no |
+| function\_gateway\_image | Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates | `string` | `"philipslabs/hsdp-func-gateway:v0.10.0"` | no |
 | gateway\_auth\_type | Enable authorization for endpoints on the gateway. Supported types: ['none', 'token', 'iam'] | `string` | `"token"` | no |
 | gateway\_disk\_quota | Gateway disk quota | `number` | `1024` | no |
 | gateway\_memory | Gateway memory | `number` | `64` | no |
@@ -80,6 +80,7 @@ No Modules.
 | auth\_type | The API gateway auth type |
 | credentials | Siderite credentials |
 | token | The authentication token for the gateway |
+
 <!--- END_TF_DOCS --->
 
 # Contact / Getting help
