@@ -79,7 +79,7 @@ variable "auth_iam_client_secret" {
 
 variable "function_gateway_image" {
   description = "Image to use for Function Gateway app. Use a v* tagged version to prevent automatic updates"
-  default     = "philipslabs/hsdp-func-gateway:v0.10.0"
+  default     = "philipslabs/hsdp-func-gateway:v1.0.0"
   type        = string
 }
 
