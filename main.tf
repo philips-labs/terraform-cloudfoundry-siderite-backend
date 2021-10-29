@@ -1,5 +1,5 @@
 resource "random_id" "id" {
-  byte_length = 8
+  byte_length = 4
 }
 
 resource "random_password" "password" {
@@ -8,9 +8,8 @@ resource "random_password" "password" {
 }
 
 locals {
-  postfix_name        = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
-  space_id            = var.cf_space != "" ? join("", data.cloudfoundry_space.space.*.id) : join("", cloudfoundry_space.space.*.id)
-  service_credentials = var.iron_credentials != "" ? var.iron_credentials : cloudfoundry_service_key.iron[0].credentials
+  postfix_name = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
+  space_id     = var.cf_space_id
 }
 
 resource "cloudfoundry_app" "hsdp_func_gateway" {
@@ -60,8 +59,6 @@ resource "cloudfoundry_route" "hsdp_func_gateway" {
   domain   = data.cloudfoundry_domain.app_domain.id
   space    = local.space_id
   hostname = "hsdp-func-gateway-${local.postfix_name}"
-
-  depends_on = [cloudfoundry_space_users.users]
 }
 
 resource "cloudfoundry_service_instance" "iron" {
@@ -71,8 +68,6 @@ resource "cloudfoundry_service_instance" "iron" {
   service_plan = data.cloudfoundry_service.iron.service_plans[var.iron_plan]
 
   replace_on_service_plan_change = true
-
-  depends_on = [cloudfoundry_space_users.users]
 }
 
 resource "cloudfoundry_service_key" "iron" {
