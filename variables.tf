@@ -7,20 +7,12 @@ variable "cf_space_id" {
   description = "The space GUID where to deploy components"
   type        = string
   default     = ""
-  validation {
-    condition     = length(var.cf_space_name) == 0 && length(var.cf_space_id) > 0
-    error_message = "Either specify cf_space_name or cf_space_id"
-  }
 }
 
 variable "cf_space_name" {
   description = "The spce name where to deploy components"
   type        = string
   default     = ""
-  validation {
-    condition     = length(var.cf_space_id) == 0 && length(var.cf_space_name) > 0
-    error_message = "Either specify cf_space_name or cf_space_id"
-  }
 }
 
 variable "name_postfix" {
