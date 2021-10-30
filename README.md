@@ -23,7 +23,9 @@ new features. Be sure to follow the releases closely as we work towards the `1.0
 
 ## Modules
 
-No Modules.
+| Name | Source | Version |
+|------|--------|---------|
+| validate_space_variables | ./modules/validate_space_variables |  |
 
 ## Resources
 
@@ -37,9 +39,6 @@ No Modules.
 | [cloudfoundry_service_instance](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_instance) |
 | [cloudfoundry_service_key](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_key) |
 | [cloudfoundry_space](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/space) |
-| [cloudfoundry_space](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/space) |
-| [cloudfoundry_space_users](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/space_users) |
-| [cloudfoundry_user](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/user) |
 | [hsdp_config](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/data-sources/config) |
 | [random_id](https://registry.terraform.io/providers/random/latest/docs/resources/id) |
 | [random_password](https://registry.terraform.io/providers/random/latest/docs/resources/password) |
@@ -56,9 +55,8 @@ No Modules.
 | auth\_iam\_roles | The roles within the IAM ORG that grants access | `list(string)` | `[]` | no |
 | base\_url | base URL for iron service | `string` | `""` | no |
 | cf\_org\_name | Cloudfoundry ORG name to use for reverse proxy | `string` | n/a | yes |
-| cf\_region | The CF region to deploy into | `string` | n/a | yes |
-| cf\_space | The space where to deploy components to. If not specified a new space will be created | `string` | `""` | no |
-| cf\_user | The Cloudfoundry user to assign rights to the app to | `string` | n/a | yes |
+| cf\_space\_id | The space GUID where to deploy components | `string` | `""` | no |
+| cf\_space\_name | The spce name where to deploy components | `string` | `""` | no |
 | docker\_password | Docker registry password | `string` | `""` | no |
 | docker\_username | Docker registry username | `string` | `""` | no |
 | enable\_gateway | Enable a gateway endpoint so you can trigger functions through HTTPS | `bool` | `true` | no |
