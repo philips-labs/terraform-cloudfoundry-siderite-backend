@@ -37,14 +37,14 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
       AUTH_IAM_CLIENT_SECRET : var.auth_iam_client_secret
       AUTH_TOKEN_TOKEN : random_password.password.result
       IRON_CONFIG : templatefile("${path.module}/templates/iron_config.json", {
-        cluster_id = locals.service_credentials["cluster_info_0_cluster_id"]
-        pubkey     = locals.service_credentials["cluster_info_0_pubkey"]
-        user_id    = locals.service_credentials["cluster_info_0_user_id"]
-        email      = locals.service_credentials["email"]
-        password   = locals.service_credentials["password"]
-        token      = locals.service_credentials["token"]
-        project    = locals.service_credentials["project"]
-        project_id = locals.service_credentials["project_id"]
+        cluster_id = local.service_credentials["cluster_info_0_cluster_id"]
+        pubkey     = local.service_credentials["cluster_info_0_pubkey"]
+        user_id    = local.service_credentials["cluster_info_0_user_id"]
+        email      = local.service_credentials["email"]
+        password   = local.service_credentials["password"]
+        token      = local.service_credentials["token"]
+        project    = local.service_credentials["project"]
+        project_id = local.service_credentials["project_id"]
         base_url   = var.base_url
       })
     }
