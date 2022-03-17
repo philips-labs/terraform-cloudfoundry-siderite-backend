@@ -10,7 +10,7 @@ resource "random_password" "password" {
 locals {
   postfix_name = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
   space_id     = var.cf_space != "" ? join("", data.cloudfoundry_space.space.*.id) : join("", cloudfoundry_space.space.*.id)
-  service_credentials  = var.iron_service_name != "" ?  data.cloudfoundry_service_key.iron.credentials : cloudfoundry_service_key.iron.*.credentials
+  service_credentials  = var.iron_service_name != "" ?  data.cloudfoundry_service_key.iron.credentials : cloudfoundry_service_key.iron[0].credentials
 }
 
 resource "cloudfoundry_app" "hsdp_func_gateway" {
@@ -78,7 +78,7 @@ resource "cloudfoundry_service_instance" "iron" {
 resource "cloudfoundry_service_key" "iron" {
   count            = length(var.iron_service_key) > 0 ? 1: 0
   name             = "key"
-  service_instance = cloudfoundry_service_instance.iron.*.id
+  service_instance = cloudfoundry_service_instance.iron[0].id
 }
 
 data "cloudfoundry_service_instance" "iron" {
