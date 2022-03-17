@@ -10,6 +10,7 @@ resource "random_password" "password" {
 locals {
   postfix_name = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
   space_id     = var.cf_space != "" ? join("", data.cloudfoundry_space.space.*.id) : join("", cloudfoundry_space.space.*.id)
+  service_credentials  = var.iron_service_name != "" ?  data.cloudfoundry_service_key.iron.credentials : cloudfoundry_service_key.iron.*.credentials
 }
 
 resource "cloudfoundry_app" "hsdp_func_gateway" {
@@ -36,14 +37,14 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
       AUTH_IAM_CLIENT_SECRET : var.auth_iam_client_secret
       AUTH_TOKEN_TOKEN : random_password.password.result
       IRON_CONFIG : templatefile("${path.module}/templates/iron_config.json", {
-        cluster_id = cloudfoundry_service_key.iron.credentials["cluster_info_0_cluster_id"]
-        pubkey     = cloudfoundry_service_key.iron.credentials["cluster_info_0_pubkey"]
-        user_id    = cloudfoundry_service_key.iron.credentials["cluster_info_0_user_id"]
-        email      = cloudfoundry_service_key.iron.credentials["email"]
-        password   = cloudfoundry_service_key.iron.credentials["password"]
-        token      = cloudfoundry_service_key.iron.credentials["token"]
-        project    = cloudfoundry_service_key.iron.credentials["project"]
-        project_id = cloudfoundry_service_key.iron.credentials["project_id"]
+        cluster_id = locals.service_credentials["cluster_info_0_cluster_id"]
+        pubkey     = locals.service_credentials["cluster_info_0_pubkey"]
+        user_id    = locals.service_credentials["cluster_info_0_user_id"]
+        email      = locals.service_credentials["email"]
+        password   = locals.service_credentials["password"]
+        token      = locals.service_credentials["token"]
+        project    = locals.service_credentials["project"]
+        project_id = locals.service_credentials["project_id"]
         base_url   = var.base_url
       })
     }
@@ -64,6 +65,7 @@ resource "cloudfoundry_route" "hsdp_func_gateway" {
 }
 
 resource "cloudfoundry_service_instance" "iron" {
+  count        = length(var.iron_service_name) > 0 ? 1: 0
   name         = "iron-${local.postfix_name}"
   space        = local.space_id
   service_plan = data.cloudfoundry_service.iron.service_plans[var.iron_plan]
@@ -74,6 +76,17 @@ resource "cloudfoundry_service_instance" "iron" {
 }
 
 resource "cloudfoundry_service_key" "iron" {
+  count            = length(var.iron_service_key) > 0 ? 1: 0
   name             = "key"
-  service_instance = cloudfoundry_service_instance.iron.id
+  service_instance = cloudfoundry_service_instance.iron.*.id
+}
+
+data "cloudfoundry_service_instance" "iron" {
+  name_or_id = var.iron_service_name
+  space      = local.space_id
+}
+
+data "cloudfoundry_service_key" "iron" {
+    name             = var.iron_service_key
+    service_instance = data.cloudfoundry_service_instance.iron.id
 }
