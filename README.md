@@ -1,5 +1,3 @@
-<img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="500px">
-
 # terraform-cloudfoundry-siderite-backend
 
 Module to deploy a Siderite backend for `hsdp_function` resource. The module is still evolving and getting
