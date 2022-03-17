@@ -65,7 +65,7 @@ resource "cloudfoundry_route" "hsdp_func_gateway" {
 }
 
 resource "cloudfoundry_service_instance" "iron" {
-  count        = length(var.iron_credentials) > 0 ? 1: 0
+  count        = length(var.iron_credentials) > 0 ? 0: 1
   name         = "iron-${local.postfix_name}"
   space        = local.space_id
   service_plan = data.cloudfoundry_service.iron.service_plans[var.iron_plan]
@@ -76,7 +76,7 @@ resource "cloudfoundry_service_instance" "iron" {
 }
 
 resource "cloudfoundry_service_key" "iron" {
-  count            = length(var.iron_credentials) > 0 ? 1: 0
+  count            = length(var.iron_credentials) > 0 ? 0: 1
   name             = "key"
   service_instance = cloudfoundry_service_instance.iron[0].id
 }
