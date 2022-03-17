@@ -124,11 +124,7 @@ variable "base_url" {
   description = "base URL for iron service"
   default     = ""
 }
-variable "iron_service_key" {
+variable "iron_credentials" {
   type        = string
-  description = "Iron Service key for iron service"
-}
-variable "iron_service_name" {
-  type        = string
-  description = "Iron Service name"
+  description = "Iron Service credentials"
 }
