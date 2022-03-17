@@ -125,7 +125,7 @@ variable "base_url" {
   default     = ""
 }
 variable "iron_credentials" {
-  type        = string
-  default     = ""
+  type        = map(any)
+  default     = {}
   description = "Iron Service credentials"
 }
