@@ -126,5 +126,6 @@ variable "base_url" {
 }
 variable "iron_credentials" {
   type        = string
+  default     = ""
   description = "Iron Service credentials"
 }
