@@ -124,3 +124,8 @@ variable "base_url" {
   description = "base URL for iron service"
   default     = ""
 }
+variable "iron_credentials" {
+  type        = map(any)
+  default     = {}
+  description = "Iron Service credentials"
+}
