@@ -67,6 +67,7 @@ No Modules.
 | gateway\_auth\_type | Enable authorization for endpoints on the gateway. Supported types: ['none', 'token', 'iam'] | `string` | `"token"` | no |
 | gateway\_disk\_quota | Gateway disk quota | `number` | `1024` | no |
 | gateway\_memory | Gateway memory | `number` | `64` | no |
+| iron\_credentials | Iron Service credentials | `map(any)` | `{}` | no |
 | iron\_plan | The Iron plan to use | `string` | `"dev-large-encrypted"` | no |
 | name\_postfix | The postfix string to append to the space, hostname, etc. Prevents namespace clashes | `string` | `""` | no |
 
