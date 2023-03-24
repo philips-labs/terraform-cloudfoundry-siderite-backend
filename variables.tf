@@ -1,22 +1,7 @@
-variable "cf_region" {
-  description = "The CF region to deploy into"
-  type        = string
-}
-
-variable "cf_org_name" {
-  description = "Cloudfoundry ORG name to use for reverse proxy"
-  type        = string
-}
-
-variable "cf_space" {
-  description = "The space where to deploy components to. If not specified a new space will be created"
+variable "cf_space_id" {
+  description = "The space GUID where to deploy components"
   type        = string
   default     = ""
-}
-
-variable "cf_user" {
-  description = "The Cloudfoundry user to assign rights to the app to"
-  type        = string
 }
 
 variable "name_postfix" {

@@ -3,7 +3,7 @@
 
 provider "registry.terraform.io/cloudfoundry-community/cloudfoundry" {
   version     = "0.50.5"
-  constraints = ">= 0.50.5"
+  constraints = ">= 0.14.2, >= 0.50.5"
   hashes = [
     "h1:mYrNJmgnvfdp8sKgurz2ezmQtiKidLCbOYkJkj44wtk=",
     "zh:0efd71ec868b4905e7f1a5bd667f2f46de7f2ce12b36ada44145c2b6669acbdc",
@@ -29,7 +29,6 @@ provider "registry.terraform.io/hashicorp/random" {
   constraints = ">= 3.4.3"
   hashes = [
     "h1:saZR+mhthL0OZl4SyHXZraxyaBNVMxiZzks78nWcZ2o=",
-    "h1:xZGZf18JjMS06pFa4NErzANI98qi59SEcBsOcS2P2yQ=",
     "zh:41c53ba47085d8261590990f8633c8906696fa0a3c4b384ff6a7ecbf84339752",
     "zh:59d98081c4475f2ad77d881c4412c5129c56214892f490adf11c7e7a5a47de9b",
     "zh:686ad1ee40b812b9e016317e7f34c0d63ef837e084dea4a1f578f64a6314ad53",
@@ -47,7 +46,7 @@ provider "registry.terraform.io/hashicorp/random" {
 
 provider "registry.terraform.io/philips-software/hsdp" {
   version     = "0.42.1"
-  constraints = ">= 0.42.1"
+  constraints = ">= 0.25.2, >= 0.42.1"
   hashes = [
     "h1:VAjijrWrUfPosV/1JodEblGw1x5wOYvBOEfq2a7Fii0=",
     "zh:030cddc0b4309eaf9c5143557edc2cd164e55cb5322acb3473b5b4565ed286fe",
