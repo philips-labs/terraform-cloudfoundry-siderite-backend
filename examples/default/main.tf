@@ -2,8 +2,7 @@ module "siderite_backend" {
   source = "../../"
 
   enable_gateway = true
-  cf_org_name    = var.cf_org_name
-  cf_space_id    = data.cloudfoundry_space.space.id
+  cf_space_id    = var.cf_space_id
 }
 
 resource "hsdp_function" "request" {

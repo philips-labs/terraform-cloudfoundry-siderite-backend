@@ -6,11 +6,7 @@ variable "cf_password" {
   type = string
 }
 
-variable "cf_org_name" {
-  type = string
-}
-
-variable "cf_space_name" {
+variable "cf_space_id" {
   type = string
 }
 

@@ -1,16 +1,5 @@
-variable "cf_org_name" {
-  description = "Cloudfoundry ORG name to use for reverse proxy"
-  type        = string
-}
-
 variable "cf_space_id" {
   description = "The space GUID where to deploy components"
-  type        = string
-  default     = ""
-}
-
-variable "cf_space_name" {
-  description = "The spce name where to deploy components"
   type        = string
   default     = ""
 }

@@ -1,6 +1,7 @@
 locals {
-  postfix_name = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
-  space_id     = length(var.cf_space_id) > 0 ? var.cf_space_id : data.cloudfoundry_space.space[0].id
+  postfix_name        = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
+  space_id            = var.cf_space_id
+  service_credentials = length(var.iron_credentials) > 0 ? var.iron_credentials : cloudfoundry_service_key.iron[0].credentials
 }
 
 resource "random_id" "id" {
@@ -19,7 +20,7 @@ resource "cloudfoundry_app" "hsdp_func_gateway" {
   memory       = var.gateway_memory
   disk_quota   = var.gateway_disk_quota
   docker_image = var.function_gateway_image
-  strategy     = "blue-green"
+  strategy     = "rolling"
 
   docker_credentials = {
     username = var.docker_username
@@ -74,10 +75,4 @@ resource "cloudfoundry_service_key" "iron" {
   count            = length(var.iron_credentials) > 0 ? 0 : 1
   name             = "key"
   service_instance = cloudfoundry_service_instance.iron[0].id
-}
-
-module "validate_space_variables" {
-  source = "./modules/validate_space_variables"
-
-  to_validate = "${var.cf_space_name}${var.cf_space_id}"
 }
