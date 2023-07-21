@@ -68,6 +68,7 @@ resource "cloudfoundry_service_instance" "iron" {
   space        = local.space_id
   service_plan = data.cloudfoundry_service.iron.service_plans[var.iron_plan]
 
+  tags                           = []
   replace_on_service_plan_change = true
 }
 
