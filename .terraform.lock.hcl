@@ -46,21 +46,21 @@ provider "registry.terraform.io/hashicorp/random" {
 }
 
 provider "registry.terraform.io/philips-software/hsdp" {
-  version     = "0.42.1"
+  version     = "0.44.3"
   constraints = ">= 0.42.1"
   hashes = [
-    "h1:VAjijrWrUfPosV/1JodEblGw1x5wOYvBOEfq2a7Fii0=",
-    "zh:030cddc0b4309eaf9c5143557edc2cd164e55cb5322acb3473b5b4565ed286fe",
-    "zh:2007c8e0d7bf809e6bd61bec366e2705a5dc8985cbf8d516a82d443188701db5",
-    "zh:2bd90dc7fd62188dd262a69c7efefb1987411de023744aa8519f163fd5e77fe8",
-    "zh:3152c338277931a410b9b02c58ee5fae856833913fb6c13ca395bca4d589ad2e",
-    "zh:3c94737c7ee897024be8b6f7f3765eff2b62b886404875a562c14e404a749863",
-    "zh:5a31aa2457e49866043d8c0aecd80c970a43c848d222347da32e61b45bd760fc",
-    "zh:6a442b5833791895a04756b50e4c8bf82cde4db7c2eeb3a3fec4e4657ccadd7a",
-    "zh:88dafa4ba2c1b5c78fa04a99478e66ca1dacbbc2a7d07123114301ea0c640f60",
-    "zh:99379fb2db681521e156f7ccafc6bf18ad794c3e76abfb3c75dd06bd788db357",
-    "zh:a78748c6da999bda6983aae3df9cbdd8bebf3ad5503de3a968ec2ac04e932c96",
-    "zh:a8dbb904a23e5e2c3f9fb2625d63cbdeb6c28e63624295dbe24de5ce450b70f9",
+    "h1:qJolvKqPk+Q/JOtnsjuZ39liAW52l3Fw5+8SHFxE61M=",
+    "zh:0a093e99b20332096cabf613bb12cf6434085732053acef51a6dd0303d66feba",
+    "zh:0e85702ac08d21f26bf7fa6fe1a9e31b8f0b4fe849cca2ce43634ab7e2950d69",
+    "zh:3acc54b69ba0ef7ea04e868e7d3f92dbea1be38258ddf8bae6db604745356e24",
+    "zh:a16a7a515b86cc30e12c9aaf552f30d1749590aaf29618a2ade172895fc8cd5a",
+    "zh:aa1a52f96775de716cb0cd1d8aefa608cb224a592b638042420cd0a803bcd7bc",
+    "zh:ba3ad772579989d8b29cf0e6306b0efdc29a07cfccf2b3727934065aa4d01ed4",
+    "zh:c6cb8d92be274262496ca6780ed45cb43f315a7c1f9201486319661c7604b0b0",
+    "zh:d8c37fd49dd4a52c69b04f010668f352b8c0705911992c33392993dc37abc14f",
+    "zh:f0cf05a48a0b7e802b39d790af43d2668a2ac55ef9dd06cc71276bbc36082877",
     "zh:f569b65999264a9416862bca5cd2a6177d94ccb0424f3a4ef424428912b9cb3c",
+    "zh:fe21bf8e1d9b5e4680c46f092e222fe7e7ca4a7a185d30f97726b4267e6a35e6",
+    "zh:ffd1ac260e43f6386dce083030941f8b95845afbf8ecc91fe9d623af1ae95378",
   ]
 }
