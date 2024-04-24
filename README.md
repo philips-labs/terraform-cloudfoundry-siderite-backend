@@ -3,6 +3,13 @@
 Module to deploy a Siderite backend for `hsdp_function` resource. The module is still evolving and getting
 new features. Be sure to follow the releases closely as we work towards the `1.0.0` release.
 
+## Disclaimer
+
+> [!Important]
+> This repository is managed as Philips Inner-source / Open-source.
+> This repository is NOT endorsed or supported by HSSA&P or I&S Cloud Operations. 
+> You are expected to self-support or raise tickets on the Github project and NOT raise tickets in HSP ServiceNow. 
+
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
 
